@@ -24,4 +24,4 @@ jobs:
           sudo apt-get install -y nix-bin
       - name: Grab Desync
         run: | 
-         nix build .#image-v1
+         nix --experimental-features nix-command build
