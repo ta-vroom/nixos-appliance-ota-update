@@ -11,17 +11,19 @@ on:
 
 
 jobs:
-  build-and-chunk:
+  nix-build:
     permissions:
-        contents: write
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y nix-bin
-      - name: Grab Desync
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Build Command
         run: | 
-         nix --experimental-features nix-command build
+          nix build
