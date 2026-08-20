@@ -32,7 +32,7 @@
     };
 
   system.image.id = "appliance";
-  system.nixos.distroName = "NixcademyOS";
+  system.nixos.distroName = "Beskopix";
 
   # Image description. This is not used at boot.
   image.repart =
@@ -92,7 +92,7 @@
 
         root.repartConfig = {
           Type = "root";
-          Format = "ext4";
+          Format = "xfs";
           Label = "root";
           Minimize = "off";
 
